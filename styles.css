@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Zilla+Slab&display=swap');
+/*
+ *  font-family: 'Roboto', sans-serif;
+ *  font-family: 'Zilla Slab', serif;
+*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+
+.container {
+  background-color: #292a29;
+  padding: 1.5rem;
+}
+
+.header {
+  font-family: 'Zilla Slab', serif;
+  background-color: #f1efef;
+  margin: 4rem auto;
+  max-width: 900px;
+  height: 464px;
+  padding: 2rem 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  z-index: 1;
+  gap: 5rem;
+}
+
+.text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: flex;
+}
+
+.text:nth-child(3) {
+  justify-content: flex-end;
+}
+
+.text p {
+  padding: 1rem;
+  width: 13rem;
+  aspect-ratio: 5 / 2;
+  display: inline-block;
+  background-color: #c9c7c7;
+  border-radius: 5px;
+  position: relative;
+  z-index: 99;
+}
+
+span {
+  opacity: 0;
+  transition: all 400ms ease-out;
+}
+
+span.fade {
+  opacity: 1;
+}
+
+.connector {
+  position: absolute;
+  height: 5px;
+  width: 0;
+  max-width: 650px;
+  background-color: #292a29;
+}
+
+#connector-1 {
+  top: 15%;
+  left: 130px;
+  transform-origin: 0 0;
+  transform: rotate(calc(15deg + var(--rotateDeg)));
+  animation: connect 800ms ease-out 1200ms forwards; /* delay to be updated */
+}
+
+#connector-2 {
+  top: 50%;
+  right: 130px;
+  transform-origin: 100%;
+  transform: rotate(calc(-15deg - var(--rotateDeg)));
+  animation: connect 800ms ease-out 2500ms forwards; /* delay to be updated */
+}
+
+@keyframes connect {
+  100% {
+    width: var(--edgeWidth);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .text:nth-child(n) {
+    justify-content: center;
+  }
+  #connector-1 {
+    top: 15%;
+    left: 50%;
+  }
+  #connector-2 {
+    top: 50%;
+    right: 50%;
+  }
+}
+
+/* GET STARTED BUTTON */
+.get-started {
+  display: flex;
+  justify-content: center;
+}
+
+#get-started-btn {
+  padding: 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  top: -10px;
+  box-shadow: 0 0 5px rgba(109, 109, 109, 0.5);
+  background-color: #c9c9c9;
+  transition: all 150ms ease;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#get-started-btn:hover {
+  transform: translateY(-5px);
+  background-color: #a9a9a9;
+}
+
+#get-started-btn a {
+  text-decoration: none;
+  color: #292a29;
+}
+
+/* MAIN */
+main {
+  padding: 2rem;
+  font-family: 'Roboto', serif;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.input {
+  grid-row: span 2;
+}
+
+@media screen and (max-width: 1040px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+main li {
+  list-style-type: decimal;
+}
+
+.vertex,
+.directed {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.directed {
+  margin-block: 0.5rem;
+}
+
+.vertex-error {
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.edge {
+  display: flex;
+  align-items: center;
+}
+
+.vertex input,
+.edge input {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.vertex input {
+  width: 6rem;
+}
+
+.edge input {
+  max-width: 6rem;
+}
+
+.btn {
+  margin-inline: 2px;
+  font-size: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  background-color: #1919d6;
+  color: #faebd7;
+  border: 0;
+  outline: 0;
+  border-radius: 3px;
+}
+
+.remove,
+.add {
+  width: 2.35rem;
+  padding-top: 0.15rem;
+  aspect-ratio: 1;
+}
+
+.btn:hover {
+  background-color: #1111be;
+}
+
+.btn:active {
+  background-color: #1a1ad5;
+}
+
+.submit-container {
+  margin-inline: 1.85rem 6rem;
+  display: flex;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.5rem;
+  color: #fff;
+}
+
+.graph, .mst {
+  display: flex;
+  justify-content: center;
+}
+
+canvas {
+  margin-block: 0.5rem;
+  background-color: aqua;
+}

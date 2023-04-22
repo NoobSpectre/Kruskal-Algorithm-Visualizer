@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="http://cdn.graphalchemist.com/alchemy.min.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Kruskal's Algorithm Simulator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="text"><p id="text-1"></p></div>
+        <div class="connector" id="connector-1"></div>
+        <div class="text"><p id="text-2"></p></div>
+        <div class="connector" id="connector-2"></div>
+        <div class="text"><p id="text-3"></p></div>
+      </div>
+      <div class="get-started">
+        <button id="get-started-btn">
+          <a href="#main">Get Started</a>
+        </button>
+      </div>
+    </div>
+    <h1
+      style="
+        padding: 0.5rem;
+        padding-left: 2rem;
+        font-family: 'Zilla Slab', serif;
+      "
+      id="main"
+    >
+      Simulation
+    </h1>
+    <main class="main">
+      <!-- Graph Inputs: Vertices, isDirected and Edges with weight -->
+      <section class="input">
+        <form id="form">
+          <div class="vertex">
+            <label for="vertices">Number of Vertices: </label>
+            <input type="number" id="vertices" name="vertices" max="10" />
+            <p class="vertex-error hidden">Max 10 vertices</p>
+          </div>
+          <div class="directed">
+            <label>Directed: </label>
+            <input
+              type="radio"
+              id="directed-true"
+              name="directed"
+              value="true"
+              checked="checked"
+            />
+            <label for="directed-true">true </label>
+            <input
+              type="radio"
+              id="directed-false"
+              name="directed"
+              value="false"
+            />
+            <label for="directed-false">false </label>
+          </div>
+          <div class="edge-container hidden">
+            <label>Enter Edges: </label>
+            <ol class="edge-list"></ol>
+            <!-- All edge inputs are inserted here -->
+            <div class="submit-container">
+              <button class="btn submit-btn">Create</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Actual Graph -->
+      <section class="graph">
+        <div id="graph-canvas" width="400" height="400"></div>
+      </section>
+
+      <!-- Minimal Spanning Tree -->
+      <section class="mst">
+        <canvas id="mst-canvas" width="400" height="400"></canvas>
+      </section>
+    </main>
+    <script src="http://cdn.graphalchemist.com/alchemy.min.js"></script>
+    <script src="./header.js"></script>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="input.js"></script>
+  </body>
+</html>
